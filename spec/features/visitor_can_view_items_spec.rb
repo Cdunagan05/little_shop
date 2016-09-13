@@ -5,12 +5,12 @@ RSpec.feature "Visitor can visit Item index" do
   #   Item.create(title: "Broncos Jersey", description: "This is a sweet Home Broncs Jersey yo", price: 100.00)
   # end
   scenario "they can visit item index and see all existing items" do
-    Item.create(title: "Broncos Jersey", description: "This is a sweet Home Broncs Jersey yo", price: 100.00)
+    Item.create(title: "Texas Jersey", description: "This is a sweet Longhorn Jersey yo", price: 100.00)
     # As a visitor
     # When I visit "/items"
     visit '/items'
     # I can see all existing items
     expect(page).to have_content("All Items")
-    expect(page).to have_content("Broncos Jersey")
+    expect(page).to have_content("Texas Jersey")
   end
 end
