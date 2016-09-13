@@ -35,6 +35,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'launchy'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
