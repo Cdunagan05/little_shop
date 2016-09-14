@@ -7,6 +7,6 @@
       <li>Description: <%= item.description %></li>
       <li>Price: $<%= item.price %></li>
     </ul>
-    <%= button_to "Add to Cart", cart_items_path(item_id: item.id), class: "btn btn-primary" %>
+    <%= button_to 'Add to Cart', cart_items_path(item_id: item.id), class: 'btn btn-primary' %>
   </div>
 <% end %>

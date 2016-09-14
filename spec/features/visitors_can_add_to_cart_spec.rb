@@ -15,18 +15,18 @@ RSpec.feature "Visitors can add to cart" do
 
   visit '/items'
 
-  expect(page).to have_button("Add to Cart")
+  expect(page).to have_button('Add to Cart')
 
-  click_button "Add to Cart"
-  click_link "View Cart"
+  click_button 'Add to Cart'
+  click_link 'View Cart'
 
-  expect(current_path).to eq("/cart")
-  
-  expect(page).to have_content("Texas Jersey")
-  expect(page).to have_content("This is a cool Longhorn jersey")
-  expect(page).to have_content("$100.00")
-  expect(page).to have_css("img[src='image_url']")
+  expect(current_path).to eq('/cart')
 
-  expect(page).to have_content("Total: $100.00")
+  expect(page).to have_content('Texas Jersey')
+  expect(page).to have_content('This is a cool Longhorn jersey')
+  expect(page).to have_content('$100.00')
+  expect(page).to have_css('img[src="image_url"]')
+
+  expect(page).to have_content('Total: $100.00')
    end
 end
