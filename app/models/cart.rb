@@ -26,6 +26,5 @@ class Cart
     item_quantities.reduce(:+) do |_total, content|
       content.first.price * content.last
     end
-    # byebug
   end
 end

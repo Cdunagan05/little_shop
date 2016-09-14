@@ -10,6 +10,11 @@
 
   <body>
     <%= render partial: 'shared/nav_bar' %>
+    <div class='container'>
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, sanitize(message), class: "text-#{type} bg-#{type}" %>
+    <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>
