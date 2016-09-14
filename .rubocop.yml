@@ -1,0 +1,6 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+
+Sytle/FrozenStringLiteralComment:
+  Enabled: false
