@@ -10,6 +10,10 @@ class Cart
     @contents[item_id.to_s] += 1
   end
 
+  def remove_item(item_id)
+    @contents.delete item_id.to_s
+  end
+
   def item_quantities
     result = {}
     @contents.each do |item_id, quantity|
@@ -22,5 +26,6 @@ class Cart
     item_quantities.reduce(:+) do |_total, content|
       content.first.price * content.last
     end
+    # byebug
   end
 end

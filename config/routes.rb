@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index]
   resources :users
 
-  resources :cart_items, only: [:create]
+  resources :cart_items, only: [:create, :destroy]
 
   get '/cart', to: 'cart#index', as: 'cart'
 

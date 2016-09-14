@@ -7,4 +7,13 @@ class CartItemsController < ApplicationController
 
     redirect_back(fallback_location: root_path)
   end
+
+  def destroy
+    item = Item.find(params[:id])
+    @cart.remove_item(item.id)
+
+    session[:cart] = @cart.contents
+
+    redirect_back(fallback_location: cart_path)
+  end
 end
