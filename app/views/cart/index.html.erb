@@ -2,3 +2,8 @@
   <%= render partial: 'shared/item_list', locals: { item: item } %>
 <% end %>
 <h3>Total: $<%= "%.2f" % @cart.total %></h3>
+<% if current_user %>
+  <%= button_to 'Checkout' %>
+<% else %>
+  <%= link_to 'Login or Create Account to Checkout', login_path %>
+<% end %>
