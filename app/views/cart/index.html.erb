@@ -1,11 +1,4 @@
 <% @cart.item_quantities.each do |item, quantity| %>
-  <div>
-    <img src=<%= item.image %> />
-    <ul>
-      <li><%= item.title %></li>
-      <li><%= item.description %></li>
-      <li>$<%= "%.2f" % item.price %></li>
-    </ul>
-</div>
+  <%= render partial: 'shared/item_list', locals: { item: item } %>
 <% end %>
 <h3>Total: $<%= "%.2f" % @cart.total %></h3>
