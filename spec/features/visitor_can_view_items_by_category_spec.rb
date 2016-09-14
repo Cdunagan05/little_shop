@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor can view items by categories" do
-  scenario "they can visit category show page and see all items" do
+RSpec.feature 'Visitor can view items by categories' do
+  scenario 'they can visit category show page and see all items' do
   #   As a visitor
-  # When I visit "/:CATEGORY_NAME"
+  # When I visit '/:CATEGORY_NAME'
   # I see all items assigned to that category
 
   category = Category.create(name: 'jersies')
