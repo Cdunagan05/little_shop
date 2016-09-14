@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Visitors have carts' do
   scenario 'a visitor adds items and views the cart' do
     # As a visitor when I have items in my cart
-    item_1 = create :item
+    create :item, title: 'Texas Jersey'
     visit '/items'
     click_button 'Add to Cart'
     # session[:cart] = create_a_cart_with_items([item_1, item_2])
@@ -20,6 +20,6 @@ RSpec.feature 'Visitors have carts' do
     visit '/cart'
     # Then I should see all of the data that was there when I was not logged in
     expect(page).to have_button 'Checkout'
-    expect(page).to have_content item_1.title
+    expect(page).to have_content 'Texas Jersey'
   end
 end
