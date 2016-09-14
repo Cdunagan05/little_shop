@@ -4,7 +4,7 @@ RSpec.feature 'Visitors can add to cart' do
   scenario 'they can add an item to a cart' do
     #  As a visitor
     # When I visit any page with an item on it
-    create(:item)
+    item = create(:item)
     visit '/items'
     # I should see a link or button for 'Add to Cart'
     expect(page).to have_button('Add to Cart')
@@ -16,8 +16,8 @@ RSpec.feature 'Visitors can add to cart' do
     expect(current_path).to eq('/cart')
     # And I should see a small image, title, description and price for the
     # item I just added
-    expect(page).to have_content('Texas Jersey')
-    expect(page).to have_content('This is a cool Longhorn jersey')
+    expect(page).to have_content item.title
+    expect(page).to have_content item.description
     expect(page).to have_content('$100.00')
     expect(page).to have_css('img[src="image_url"]')
     # And there should be a 'total' price for the cart that should be the sum
