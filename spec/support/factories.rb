@@ -5,4 +5,9 @@ FactoryGirl.define do
     price 100.00
     image 'image_url'
   end
+
+  factory :user do
+    username 'User'
+    password 'password'
+  end
 end
