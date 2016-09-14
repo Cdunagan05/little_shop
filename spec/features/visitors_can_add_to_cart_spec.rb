@@ -21,11 +21,11 @@ RSpec.feature "Visitors can add to cart" do
   click_link "View Cart"
 
   expect(current_path).to eq("/cart")
-
+  
   expect(page).to have_content("Texas Jersey")
   expect(page).to have_content("This is a cool Longhorn jersey")
   expect(page).to have_content("$100.00")
-  expect(page).to have_content("image_url")
+  expect(page).to have_css("img[src='image_url']")
 
   expect(page).to have_content("Total: $100.00")
    end
