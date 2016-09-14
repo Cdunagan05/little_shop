@@ -2,10 +2,7 @@
 
 <% @items.each do |item| %>
   <div>
-    <ul>
-      <li>Name: <%= item.title %></li>
-      <li>Description: <%= item.description %></li>
-      <li>Price: $<%= item.price %></li>
-    </ul>
+    <%= render partial: 'shared/item_list', locals: { item: item } %>
+    <%= button_to 'Add to Cart', cart_items_path(item_id: item.id), class: 'btn btn-primary' %>
   </div>
 <% end %>

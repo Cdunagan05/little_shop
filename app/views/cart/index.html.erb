@@ -1,0 +1,4 @@
+<% @cart.item_quantities.each do |item, quantity| %>
+  <%= render partial: 'shared/item_list', locals: { item: item } %>
+<% end %>
+<h3>Total: $<%= "%.2f" % @cart.total %></h3>
