@@ -5,6 +5,6 @@ class CartItemsController < ApplicationController
 
     session[:cart] = @cart.contents
 
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 end
