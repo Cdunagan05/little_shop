@@ -17,7 +17,7 @@ RSpec.feature 'Visitors can remove items from carts' do
     # And the message should say "Successfully removed SOME_ITEM from your
     # cart."
     expect(page).to have_content(
-    'Successfully removed Texas Jersey from your cart')
+      'Successfully removed Texas Jersey from your cart')
     # And the title "SOME_ITEM" should be a link to that item in case the user
     # wants to add it back
     expect(page).to have_link 'Texas Jersey'
