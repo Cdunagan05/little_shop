@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :users
 
   resources :cart_items, only: [:create]
-  get '/cart', to: 'cart#index', as: "cart"
+
+  get '/cart', to: 'cart#index', as: 'cart'
 
   get '/:category_name', to: 'categories#show'
 end

@@ -19,8 +19,8 @@ class Cart
   end
 
   def total
-    item_quantities.reduce(0) do |total, content|
-      total += content.first.price * content.last
+    item_quantities.reduce(:+) do |total, content|
+      content.first.price * content.last
     end
   end
 end

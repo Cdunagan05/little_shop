@@ -4,6 +4,7 @@
       <a class='navbar-brand' href='#'>Home</a>
     </div>
     <ul class='nav navbar-nav navbar-right'>
+      <%= link_to 'View Cart', cart_path %>
       <% if current_user %>
         <li>Logged in as <%= current_user.username %></li>
         <li><%= link_to 'Logout', logout_path, method: 'delete'%></li>

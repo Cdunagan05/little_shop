@@ -6,6 +6,4 @@ RSpec.describe Cart, type: :model do
 
     expect(cart.contents).to eq('1' => 1)
   end
-
-
 end
