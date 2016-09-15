@@ -22,9 +22,13 @@ class Cart
     result
   end
 
+  def empty_message
+    "False Start!  You have nothing in your cart!"
+  end
+
   def total
-    item_quantities.reduce(:+) do |_total, content|
-      content.first.price * content.last
+    item_quantities.reduce(0) do |total, content|
+      total += content.first.price * content.last
     end
   end
 end
