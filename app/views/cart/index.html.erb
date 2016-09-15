@@ -1,7 +1,10 @@
-<% @cart.item_quantities.each do |item, quantity| %>
-  <%= render partial: 'shared/item_list', locals: { item: item } %>
-<% end %>
-<h3>Total: $<%= "%.2f" % @cart.total %></h3>
+<div id='cart'>
+  <% @cart.item_quantities.each do |item, quantity| %>
+    <%= render partial: 'shared/item_list', locals: { item: item } %>
+    <%= link_to 'Remove', cart_item_path(item), method: 'delete' %>
+  <% end %>
+  <h3>Total: <%= number_to_currency @cart.total %></h3>
+</div>
 <% if current_user %>
   <%= button_to 'Checkout' %>
 <% else %>

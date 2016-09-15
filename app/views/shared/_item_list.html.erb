@@ -6,7 +6,7 @@
     <ul>
       <li>Name: <%= item.title %></li>
       <li>Description: <%= item.description %></li>
-      <li>Price: $<%= "%.2f" % item.price %></li>
+      <li>Price: <%= number_to_currency item.price %></li>
     </ul>
   </div>
 </div>
