@@ -7,7 +7,7 @@ FactoryGirl.define do
   end
 
   factory :user do
-    username 'User'
+    sequence(:username) { |n| "user#{n}" }
     password 'password'
   end
 
@@ -23,5 +23,24 @@ FactoryGirl.define do
         create_list(:item, evaluator.item_count, categories: [category])
       end
     end
+  end
+
+  factory :order do
+    status 0
+
+    factory :order_for_user do
+      user
+
+      factory :order_with_user_and_items do
+        transient do
+          item_count 2
+        end
+
+        after(:create) do |order, evaluator|
+          create_list(:item, evaluator.item_count, orders: [order])
+        end
+      end
+    end
+
   end
 end
