@@ -11,21 +11,21 @@ RSpec.describe Cart, type: :model do
     item = create :item
     cart = Cart.new
 
-    expect{cart.add_item(item.id)}.to change {
+    expect{ cart.add_item(item.id) }.to change {
       cart.item_quantities
-    }.from({}).to({item => 1})
+    }.from({}).to(item => 1)
   end
 
   it 'can remove an item' do
     item = create :item
     cart = Cart.new(item.id.to_s => 1)
 
-    expect{cart.remove_item(item.id)}.to change {
+    expect{ cart.remove_item(item.id) }.to change {
       cart.item_quantities
-    }.from({item => 1}).to({})
+    }.from(item => 1).to({})
   end
 
-  it "calculates the total for the cart" do
+  it 'calculates the total for the cart' do
     item = create :item, price: 100.0
     cart = Cart.new(item.id.to_s => 2)
 

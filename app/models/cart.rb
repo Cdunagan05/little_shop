@@ -23,7 +23,7 @@ class Cart
   end
 
   def empty_message
-    "False Start!  You have nothing in your cart!"
+    'False Start!  You have nothing in your cart!'
   end
 
   def total
