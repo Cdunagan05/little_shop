@@ -1,6 +1,6 @@
 <h1>My Orders</h1>
 <ul>
-<% @orders.each do |order|%>
-  <li>Order number <%= link_to order.id, order_path(order) %>
-<% end %>
+  <% @orders.each do |order|%>
+    <li>Order number <%= link_to order.id, order_path(order) %>
+  <% end %>
 </ul>

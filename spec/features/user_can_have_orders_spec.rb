@@ -2,16 +2,14 @@ require 'rails_helper'
 
 RSpec.feature 'User can have multiple orders' do
   scenario 'they visit /orders and see all their orders' do
+    order = create :order_for_user
+    other_order = create :order
+    login_user(order.user)
+    visit '/orders'
 
-  #   As an Authenticated User
-  user = create :user
-  login_user(user)
-
-  # When I visit "/orders"
-  visit '/orders'
-
-  # Then I should see all orders belonging to me and no other orders
-  expect(page).to have_content("My Orders")
+    expect(page).to have_content('My Orders')
+    expect(page).to have_content(order.id)
+    expect(page).to_not have_content(other_order.id)
 
   end
 end
