@@ -14,6 +14,18 @@ class Cart
     @contents.delete item_id.to_s
   end
 
+  def increase_quantity(item_id, quantity)
+    @contents[item_id.to_s] = quantity
+  end
+
+  def decrease_quantity(item_id, quantity)
+    if quantity == 0
+      remove_item(item_id)
+    else
+      @contents[item_id.to_s] = quantity
+    end
+  end
+
   def item_quantities
     result = {}
     @contents.each do |item_id, quantity|

@@ -13,8 +13,8 @@ RSpec.feature "Visitor can increase item quantity in cart" do
     # Then I should see my item with a quantity of 1
     expect(page).to have_content('Number in cart: 1')
     # And when I increase the quantity
-    fill_in :item_quantity, with: 2
-    save_and_open_page
+    fill_in 'cart_items[quantity]', with: 2
+    
     click_on 'Update Item'
     # Then my current page should be '/cart'
     expect(current_path).to eq('/cart')

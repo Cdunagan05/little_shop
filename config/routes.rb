@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:create, :destroy]
 
   get '/cart', to: 'cart#index', as: 'cart'
-
+  put '/cart', to: 'cart#update'
   get '/:category_name', to: 'categories#show'
 end
