@@ -17,6 +17,12 @@ class CartItemsController < ApplicationController
     redirect_back(fallback_location: cart_path)
   end
 
+  def update
+    @cart.change_quantity(params[:id], params[:cart_items][:quantity])
+    session[:cart] = @cart.contents
+    redirect_back(fallback_location: cart_path)
+  end
+
   def undo_link(item)
     view_context.link_to(item.title, item_path(item))
   end

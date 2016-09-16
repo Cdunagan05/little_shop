@@ -14,15 +14,11 @@ class Cart
     @contents.delete item_id.to_s
   end
 
-  def increase_quantity(item_id, quantity)
-    @contents[item_id.to_s] = quantity
-  end
-
-  def decrease_quantity(item_id, quantity)
-    if quantity == 0
+  def change_quantity(item_id, quantity)
+    if quantity.to_i <= 0
       remove_item(item_id)
     else
-      @contents[item_id.to_s] = quantity
+      @contents[item_id.to_s] = quantity.to_i
     end
   end
 
