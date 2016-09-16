@@ -10,6 +10,5 @@ RSpec.feature 'User can have multiple orders' do
     expect(page).to have_content('My Orders')
     expect(page).to have_content(order.id)
     expect(page).to_not have_content(other_order.id)
-
   end
 end

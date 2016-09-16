@@ -1,8 +1,16 @@
 class OrdersController < ApplicationController
   def index
-    @orders = current_user.orders
+    if current_user
+      @orders = current_user.orders
+    else
+      render 'shared/error'
+    end
   end
   def show
-    @order = current_user.orders.find(params[:id])
+    if current_user
+      @order = current_user.orders.find(params[:id])
+    else
+      render 'shared/error'
+    end
   end
 end

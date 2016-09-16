@@ -1,0 +1,7 @@
+<h1>Order number <%= order.id %></h1>
+<div>
+  <h3>Order placed on <%= order.created_at %></h3>
+  <% if order.cancelled? || order.completed? %>
+    <h3>Order <%= order.status %> on <%= order.updated_at %></h3>
+  <% end %>
+</div>
