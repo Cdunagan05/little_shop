@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Users can log in to their account' do
   scenario 'they visit root and log in' do
-    create(:user)
+    user =create(:user)
     # As a visitor
     # When I visit '/'
     visit '/'
@@ -16,7 +16,7 @@ RSpec.feature 'Users can log in to their account' do
     expect(page).to have_content 'Username'
     expect(page).to have_content 'Password'
     # And I fill in my desired credentials
-    fill_in 'Username', with: 'User'
+    fill_in 'Username', with: user.username
     fill_in 'Password', with: 'password'
     # And I submit my information
     click_button 'Login'
@@ -24,7 +24,7 @@ RSpec.feature 'Users can log in to their account' do
     expect(current_path).to eq '/dashboard'
     # And I should see a message in the navbar that says 'Logged in as
     # SOME_USER'
-    expect(page).to have_content 'Logged in as User'
+    expect(page).to have_content 'Logged in as user'
     # And I should see my profile information
     expect(page).to have_content 'Member since '
     # And I should not see a link for 'Login'
