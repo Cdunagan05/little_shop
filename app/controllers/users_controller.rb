@@ -14,7 +14,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    if current_user
+      render :show
+    else
+      flash[:warning] = 'Must log in to view dashboard'
+      redirect_to login_path
+    end
   end
 
   private
