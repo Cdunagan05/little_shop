@@ -5,6 +5,13 @@
     <% @cart.item_quantities.each do |item, quantity| %>
       <%= render partial: 'shared/item_list', locals: { item: item } %>
       Number in cart: <%= quantity %>
+      <%= form_for :item, :url => item_path(id: item.id), method: :update do |f|  %>
+        <div class="field">
+           <%= f.label "Update Quantity:"  %>
+           <%= f.number_field :quantity %>
+           <%= f.submit "Update Item"%>
+        </div>
+      <% end %>
       <!-- Increase and decrease links! -->
       <%= link_to 'Remove', cart_item_path(item), method: 'delete' %>
     <% end %>
