@@ -4,11 +4,11 @@ RSpec.feature 'User can view a past order' do
   scenario 'User has one past order' do
     # As an authenticated user
     order = create :order_with_user_and_items
-    login(order.user)
+    login_user(order.user)
     # When I visit "/orders"
     visit '/orders'
     # Then I should see my past order
-    expect(page).to have_content 'test'
+    expect(page).to have_content 'Order number'
     # And I should see a link to view that order
     expect(page).to have_link 'test'
     # And when I click that link
