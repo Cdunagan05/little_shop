@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :users
   resources :orders, only: [:index, :show]
   resources :cart_items, only: [:create, :destroy, :update]
-  get '/admin/dashboard', to: 'users#show'
+  get '/admin/dashboard', to: 'admin/users#show'
+
+  namespace :admin do
+    resources :users, only: [:show]
+  end
 
   get '/cart', to: 'cart#index', as: 'cart'
   get '/:category_name', to: 'categories#show'
