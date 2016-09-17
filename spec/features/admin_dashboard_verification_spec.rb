@@ -17,7 +17,7 @@ RSpec.feature 'Only admins have access to dashboard' do
   expect(page).to have_content('Admin Dashboard')
   end
 
-  scenario 'they log in and cant see admin dashboard' do
+  scenario 'they log in and cannnot see admin dashboard' do
     # As a registered user
     user = create :user
     login_user(user)
@@ -25,6 +25,14 @@ RSpec.feature 'Only admins have access to dashboard' do
     visit '/admin/dashboard'
     # save_and_open_page
     #  I get a 404
+    expect(page).to have_content('404')
+  end
+
+  scenario 'visitor cannot see admin dashboard' do
+    #   As an unregistered user
+    # When I visit "/admin/dashboard"
+    visit '/admin/dashboard'
+    # I get a 404
     expect(page).to have_content('404')
   end
 end
