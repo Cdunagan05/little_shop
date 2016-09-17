@@ -12,7 +12,7 @@ RSpec.feature 'Visitor can create an account' do
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     # And I submit my information
-    click_button 'Create Account'
+    click_button 'Create User'
     # Then my current page should be '/dashboard'
     expect(current_path).to eq('/dashboard')
     # And I should see a message in the navbar that says 'Logged in as
