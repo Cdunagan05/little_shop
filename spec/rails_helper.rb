@@ -73,6 +73,8 @@ RSpec.configure do |config|
     click_button 'Login'
   end
 
+  
+
   # def create_a_cart_with_items(items)
   #   cart = Cart.new({})
   #   items.each do |item|

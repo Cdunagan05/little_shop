@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :orders, only: [:index, :show]
   resources :cart_items, only: [:create, :destroy, :update]
+  get '/admin/dashboard', to: 'users#show'
 
   get '/cart', to: 'cart#index', as: 'cart'
   get '/:category_name', to: 'categories#show'
