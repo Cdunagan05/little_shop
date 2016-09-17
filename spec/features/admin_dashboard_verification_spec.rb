@@ -14,7 +14,17 @@ RSpec.feature 'Only admins have access to dashboard' do
 # When I visit "/admin/dashboard"
   expect(current_path).to eq '/admin/dashboard'
 # I will see a heading on the page that says "Admin Dashboard"
-  save_and_open_page
   expect(page).to have_content('Admin Dashboard')
+  end
+
+  scenario 'they log in and cant see admin dashboard' do
+    # As a registered user
+    user = create :user
+    login_user(user)
+    #  When I visit "/admin/dashboard"
+    visit '/admin/dashboard'
+    # save_and_open_page
+    #  I get a 404
+    expect(page).to have_content('404')
   end
 end

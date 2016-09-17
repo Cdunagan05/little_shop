@@ -1,7 +1,3 @@
-<% if current_admin? %>
-  <%= 'Admin Dashboard' %></br>
-<% end %>
-
 <h1>Welcome <%= current_user.username %></h1>
 
 <%= link_to 'View Cart', cart_path %>
