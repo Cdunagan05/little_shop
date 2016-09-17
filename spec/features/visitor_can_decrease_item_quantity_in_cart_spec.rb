@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Visitor can decrease Item quantity in cart" do
   scenario "they can decrease the item quantity of an existing item in cart" do
-    item = create :item
+    create :item
     visit '/items'
 
     click_button 'Add to Cart'
