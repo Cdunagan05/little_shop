@@ -72,9 +72,6 @@ RSpec.configure do |config|
     fill_in 'Password', with: user.password
     click_button 'Login'
   end
-
-  
-
   # def create_a_cart_with_items(items)
   #   cart = Cart.new({})
   #   items.each do |item|
