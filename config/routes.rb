@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   get '/admin/dashboard', to: 'admin/users#show'
   namespace :admin do
-    resources :users, only: [:show]
+    resources :users, only: [:show, :update]
+    resources :orders, only: [:update]
   end
 
   get '/cart', to: 'cart#index', as: 'cart'

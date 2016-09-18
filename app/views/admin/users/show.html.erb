@@ -32,11 +32,20 @@
         <tr class='<%= "order#{order.id}" %>' >
           <td><%= link_to "Order number #{order.id}", order_path(order) %></td>
           <% if order.ordered? %>
-            <td><%= link_to 'Cancel'  %></td>
-            <td><%= link_to 'Mark as paid' %></td>
+            <td>
+              <%= link_to 'Cancel', admin_order_path(order.id, 'order[status]' => 'cancelled'), method: :put %>
+              <!-- , :order[:status] => 2 -->
+            </td>
+            <td>
+              <%= link_to 'Mark as paid', admin_order_path(order.id, 'order[status]' => 'paid'), method: :put %>
+            </td>
           <% elsif order.paid? %>
-            <td><%= link_to 'Cancel' %></td>
-            <td><%= link_to 'Mark as completed' %></td>
+            <td>
+              <%= link_to 'Cancel', admin_order_path(order.id, 'order[status]' => 'cancelled'), method: :put %>
+            </td>
+            <td>
+              <%= link_to 'Mark as completed', admin_order_path(order.id, 'order[status]' => 'completed'), method: :put %>
+            </td>
           <% end %>
         </tr>
       <% end %>
