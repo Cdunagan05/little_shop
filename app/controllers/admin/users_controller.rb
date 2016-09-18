@@ -1,11 +1,7 @@
 class Admin::UsersController < Admin::BaseController
   def show
     @orders = Order
-    if params[:status]
-      @status = params[:status]
-    else
-      @status = 'all'
-    end
+    @status = params[:status] || 'all'
     render :show
   end
 end

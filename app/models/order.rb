@@ -20,14 +20,14 @@ class Order < ApplicationRecord
   end
 
   def self.count_by_status(status)
-    self.where(status: status).count
+    where(status: status).count
   end
 
   def self.all_by_status(status)
     if status == 'all'
-      self.all
+      all
     else
-      self.where(status: status)
+      where(status: status)
     end
   end
 end
