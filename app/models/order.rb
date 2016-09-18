@@ -4,12 +4,14 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :items, through: :order_items
 
-  enum status: %W[ordered paid cancelled completed]
+  enum status: %w(ordered paid cancelled completed)
 
-  def set_items(line_items)
+  def subtotal_order_items(line_items)
     line_items.each do |item, quantity|
-      items<<(item)
-      order_items.find_by(item_id:item.id).update_attribute(:subtotal, item.price * quantity)
+      items << item
+      order_items.find_by(item_id: item.id).update_attribute(:subtotal,
+        item.price * quantity
+      )
     end
   end
 

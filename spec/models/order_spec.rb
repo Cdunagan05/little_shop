@@ -11,7 +11,7 @@ RSpec.describe Order, type: :model do
   it 'creates order items for each item on the order' do
     item = create :item
     order = create :order_for_user
-    expect { order.set_items(item => 1) }.to change {
+    expect { order.subtotal_order_items(item => 1) }.to change {
       OrderItem.all.count
     }.from(0).to(1)
   end
@@ -19,7 +19,7 @@ RSpec.describe Order, type: :model do
   it 'totals up subtotals from order items' do
     item = create :item
     order = create :order_for_user
-    order.set_items(item => 2)
+    order.subtotal_order_items(item => 2)
 
     expect(order.total).to eq(200)
   end

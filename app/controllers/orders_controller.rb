@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
       render 'shared/error'
     end
   end
+
   def show
     if current_user
       @order = current_user.orders.find(params[:id])

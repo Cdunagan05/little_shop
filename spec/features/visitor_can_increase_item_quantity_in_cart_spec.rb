@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor can increase item quantity in cart" do
-  scenario "they can increase an items quantity in cart" do
-    item = create :item
+RSpec.feature 'Visitor can increase item quantity in cart' do
+  scenario 'they can increase an items quantity in cart' do
+    create :item
 
     visit '/items'
     click_button 'Add to Cart'

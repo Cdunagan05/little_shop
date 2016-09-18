@@ -4,3 +4,6 @@ AllCops:
 
 Sytle/FrozenStringLiteralComment:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false

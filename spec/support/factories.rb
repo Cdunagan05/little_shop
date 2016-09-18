@@ -49,11 +49,13 @@ FactoryGirl.define do
         end
 
         after(:create) do |order, evaluator|
-          create_list(:item_with_orders, evaluator.item_count, orders: [order])
-
+          create_list(
+            :item_with_orders,
+            evaluator.item_count,
+            orders: [order]
+          )
         end
       end
     end
-
   end
 end
