@@ -18,3 +18,4 @@ user.orders.first.items<<([item1, item2])
 user.orders.first.save
 user.orders.first.order_items.where(item_id: item1.id).first.update_attribute(:subtotal, 500.0)
 user.orders.first.order_items.where(item_id: item2.id).first.update_attribute(:subtotal, 375.0)
+User.create(username:'admin', password:'password', role: 1)

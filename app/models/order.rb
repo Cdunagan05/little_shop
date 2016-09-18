@@ -18,4 +18,16 @@ class Order < ApplicationRecord
   def total
     order_items.sum(:subtotal)
   end
+
+  def self.count_by_status(status)
+    where(status: status).count
+  end
+
+  def self.all_by_status(status)
+    if status == 'all'
+      all
+    else
+      where(status: status)
+    end
+  end
 end

@@ -10,11 +10,11 @@ RSpec.feature 'User can view a past order' do
     visit '/orders'
 
     expect(page).to have_content 'Order number'
-    expect(page).to have_link '3'
+    expect(page).to have_link order.id
 
-    click_link '3'
+    click_link order.id
 
-    expect(current_path).to eq('/orders/3')
+    expect(current_path).to eq("/orders/#{order.id}")
     expect(page).to have_content'Jersey 7: $200.00'
     expect(page).to have_link(order.items.first.title)
     expect(page).to have_content(order.status)

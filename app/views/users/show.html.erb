@@ -1,6 +1,6 @@
 <h1>Welcome <%= current_user.username %></h1>
 
-<%= link_to 'View Cart', cart_path %>
+<h3><%= link_to 'View Cart', cart_path %></h3>
 
-<p>planning to have an edit button!</p>
+<h3><%= link_to 'Edit Profile', edit_user_path(current_user) %><h3> 
 <p>Member since <%= current_user.created_at %></p>

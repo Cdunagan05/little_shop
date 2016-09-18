@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Status</th><th>Count</th>
+  </tr>
+  <tr>
+    <td>Ordered</td><td> <%= @orders.count_by_status('ordered') %></td>
+  </tr>
+  <tr>
+    <td>Paid</td><td> <%= @orders.count_by_status('paid') %></td>
+  </tr>
+  <tr>
+    <td>Completed</td><td> <%= @orders.count_by_status('completed') %></td>
+  </tr>
+  <tr>
+    <td>Cancelled</td><td> <%= @orders.count_by_status('cancelled') %></td>
+  </tr>
+</table>
