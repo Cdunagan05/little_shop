@@ -8,7 +8,9 @@ class OrdersController < ApplicationController
   end
 
   def show
-    if current_user
+    if current_admin?
+      @order = Order.find(params[:id])
+    elsif current_user
       @order = current_user.orders.find(params[:id])
     else
       render 'shared/error'

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Admin cannot modify users' do
-  scenario 'they can edit their own account, but not users' do
+  scenario 'they can edit their own account' do
     user = create :user, role: 1
     login_user(user)
 

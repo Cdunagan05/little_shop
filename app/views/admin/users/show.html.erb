@@ -1,3 +1,39 @@
-<h3> Admin Dashboard </h3>
+<div class='row'>
+  <div class='col-md-6'>
+    <h3> Admin Dashboard </h3>
 
-<h1>Welcome <%= current_user.username %></h1>
+    <h1>Welcome <%= current_user.username %></h1>
+  </div>
+  <div class ='col-md-6'>
+    <%= render partial: 'status_count', locals: {orders: @orders} %>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-md-8 text-center'><h3>Orders</h3></div><div class="col-md-4 dropdown">
+ <button class="btn btn-secondary dropdown-toggle"
+         type="button" id="filter_status" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false">
+   Filter Status
+ </button>
+ <div class="dropdown-menu" aria-labelledby="filter_status">
+   <a class="dropdown-item" href="#">All</a></br>
+   <a class="dropdown-item" href="#">Ordered</a></br>
+   <a class="dropdown-item" href="#">Paid</a></br>
+   <a class="dropdown-item" href="#">Completed</a></br>
+   <a class="dropdown-item" href="#">Cancelled</a>
+ </div>
+</div>
+
+<div class='row'>
+  <div class='col-md-12'>
+    <table>
+      <% @orders.all_by_status(@status).each do |order| %>
+        <tr>
+          <td><%= link_to "Order number #{order.id}", order_path(order) %></td>
+          <!-- <td><%= link_to  %></td> -->
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
