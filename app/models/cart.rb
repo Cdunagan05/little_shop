@@ -15,11 +15,10 @@ class Cart
   end
 
   def change_quantity(item_id, quantity)
-    if quantity.to_i <= 0
-      # remove_item(item_id)
-      @contents[item_id.to_s] = 0
+    @contents[item_id.to_s] = if quantity.to_i <= 0
+      0
     else
-      @contents[item_id.to_s] = quantity.to_i
+      quantity.to_i
     end
   end
 

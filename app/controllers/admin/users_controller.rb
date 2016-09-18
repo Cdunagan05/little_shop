@@ -1,7 +1,5 @@
 class Admin::UsersController < Admin::BaseController
   def show
-    if current_user
-      render :show
-    end
+    render :show if current_user
   end
 end
