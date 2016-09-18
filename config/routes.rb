@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :items, only: [:index, :show]
   resources :users
+  resources :orders, only: [:index, :show]
+  resources :cart_items, only: [:create, :destroy, :update]
+  get '/admin/dashboard', to: 'admin/users#show'
 
-  resources :cart_items, only: [:create, :destroy]
+  namespace :admin do
+    resources :users, only: [:show]
+  end
 
   get '/cart', to: 'cart#index', as: 'cart'
-
   get '/:category_name', to: 'categories#show'
 end
