@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   end
 
   get '/cart', to: 'cart#index', as: 'cart'
+  post '/cart', to: 'orders#create'
   get '/:category_name', to: 'categories#show'
 end
