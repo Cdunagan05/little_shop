@@ -1,3 +1,4 @@
 <%= render partial: 'header', locals: { order: @order } %>
 <%= render partial: 'lines', locals: { order: @order } %>
-<h3>Total: <%= number_to_currency @order.total %>
+<h3>Total: <%= number_to_currency @order.total %><h3>
+<%= link_to 'Back to your orders', orders_path %>

@@ -44,7 +44,8 @@ ActiveRecord::Schema.define(version: 20160919211737) do
     t.integer  "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal  "subtotal"
+    t.decimal  "price"
+    t.integer  "quantity"
     t.index ["item_id"], name: "index_order_items_on_item_id", using: :btree
     t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
   end
