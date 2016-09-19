@@ -9,9 +9,8 @@ class Order < ApplicationRecord
   def subtotal_order_items(line_items)
     line_items.each do |item, quantity|
       items << item
-      order_items.find_by(item_id: item.id).update_attribute(:subtotal,
-        item.price * quantity
-      )
+      order_items.last.price = item.price
+      order_items.last.quantity = quantity
     end
   end
 

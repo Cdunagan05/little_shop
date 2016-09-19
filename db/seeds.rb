@@ -25,12 +25,12 @@ item4.categories<<([water_bottle, va_tech])
 user.orders.new
 user.orders.first.items<<([item1, item2])
 user.orders.first.save
-user.orders.first.order_items.where(item_id: item1.id).first.update_attribute(:subtotal, 500.0)
-user.orders.first.order_items.where(item_id: item2.id).first.update_attribute(:subtotal, 375.0)
+user.orders.first.order_items.where(item_id: item1.id).first.update_attributes(:price, item1.price, :quantity, 5)
+user.orders.first.order_items.where(item_id: item2.id).first.update_attributes(:price, item2.price, :quantity, 3)
 User.create(username:'admin', password:'password', role: 1)
 
 order2 = user.orders.new
 order2.items<<([item3, item4])
 order2.save
-order2.order_items.where(item_id: item3.id).first.update_attribute(:subtotal, 50.0)
-order2.order_items.where(item_id: item4.id).first.update_attribute(:subtotal, 40.0)
+order2.order_items.where(item_id: item3.id).first.update_attributes(:price, item3.price, :quantity, 5)
+order2.order_items.where(item_id: item4.id).first.update_attributes(:price, item4.price, :quantity, 5)

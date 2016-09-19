@@ -5,6 +5,7 @@ RSpec.feature 'User can view a past order' do
     item1, item2 = create_list(:item, 2)
     order = create :order_for_user, status: 3
     order.subtotal_order_items(item1 => 2, item2 => 3)
+    order.save
 
     login_user(order.user)
     visit '/orders'
