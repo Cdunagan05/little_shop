@@ -15,7 +15,9 @@ class Order < ApplicationRecord
   end
 
   def total
-    order_items.sum(:subtotal)
+    order_items.reduce(0) do |total, order_item|
+      total += order_item.price * order_item.quantity
+    end
   end
 
   def self.count_by_status(status)
