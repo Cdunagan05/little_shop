@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Only admins have access to dashboard' do
   scenario 'an admin can see admin dashboard as admin' do
-    User.create(username: 'admin', password: 'password', role: 1)
+    create :user, role: 1, username: 'admin', password: 'password'
 
     visit '/login'
 
