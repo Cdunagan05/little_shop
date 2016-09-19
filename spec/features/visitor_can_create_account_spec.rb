@@ -6,6 +6,8 @@ RSpec.feature 'Visitor can create an account' do
     click_link 'Create Account'
 
     fill_in 'Username', with: 'User'
+    fill_in 'Name', with: 'Bob'
+    fill_in 'Address', with: '3309 Edgemont'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     click_button 'Create User'
