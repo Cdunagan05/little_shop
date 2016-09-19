@@ -23,7 +23,9 @@ RSpec.feature 'Admin can view an individual order' do
 # - Quantity in this order.
 # - Price
 # - Line item subtotal.
-    expect(page).to have_link('Texas Jersey')
+save_and_open_page
+    expect(page).to have_link('Jersey 7')
+    
     expect(page).to have_content('Quantity 2')
     expect(page).to have_content(100.0)
     expect(page).to have_content(200.0)
