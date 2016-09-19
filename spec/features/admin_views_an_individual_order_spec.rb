@@ -6,9 +6,13 @@ RSpec.feature 'Admin can view an individual order' do
     admin = create :user, role: 1
     login_user(admin)
     billy = create :user, name: 'Billybob Thorton', address: '123 Fake St'
-    order = create :order, user: billy
+    order = build :order, user: billy
+    item1 = create :item
+    item2 = create :item
+    order.subtotal_order_items({item1 => 2, item2 => 1})
+    order.save
  # when I visit an individual order page
-    visit '/orders/1'
+    visit '/orders/8'
 # Then I can see the order's date and time.
     expect(page).to have_content(order.created_at)
 # And I can see the purchaser's full name and address.
