@@ -53,8 +53,7 @@ class UsersController < ApplicationController
                                  :name,
                                  :address,
                                  :password,
-                                 :password_confirmation
-                                )
+                                 :password_confirmation)
   end
 
   def set_user
