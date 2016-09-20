@@ -2,25 +2,25 @@ require 'rails_helper'
 
 RSpec.feature 'Authenticated user security' do
   scenario 'Users cannot view other users private data' do
-    # As an Authenticated User
     user = create :user
     other_user = create :user
     login_user(user)
-    # I cannot view another user's private data (current or past orders, etc)
+
     visit user_path(other_user)
-    expect(page).to have_content("Users can only view their own dashboard")
+    expect(page).to have_content('Users can only view their own dashboard')
 
     item = create :item
     order = build :order, user: other_user
     order.subtotal_order_items(item => 2)
     order.save
+
     visit order_path(order)
     expect(page).to have_content('Users can only view their own orders')
-    # I cannot view the administrator screens or use admin functionality
+
     visit admin_dashboard_path
-    #error message
-    # I cannot make myself an admin
+    expect(page).to have_content('Flag on the play! Out of bounds')
+
     visit edit_user_path(user)
-    expect(page).to_not have_content("Role")
+    expect(page).to_not have_content('Role')
   end
 end

@@ -68,10 +68,10 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    if params[:id]
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
+    @user = if params[:id]
+              User.find(params[:id])
+            else
+              current_user
+            end
   end
 end
