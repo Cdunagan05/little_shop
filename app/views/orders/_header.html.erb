@@ -1,7 +1,14 @@
 <h1>Order number <%= order.id %></h1>
 <div>
-  <h3>Order placed on <%= order.created_at %></h3>
+  <h2>Order for: <%= order.user.name %> </h2>
+  <h2>Shipping Address: <%= order.user.address %> </h2>
+</div>
+
+<div>
+  <h5>Order placed on <%= order.created_at.to_formatted_s(:long) %></h5>
   <% if order.cancelled? || order.completed? %>
-    <h3>Order <%= order.status %> on <%= order.updated_at %></h3>
+    <h5>Order <%= order.status %> on <%= order.updated_at.to_formatted_s(:long) %></h5>
+  <% else %>
+    <h5>Status: <%= order.status.capitalize %>
   <% end %>
 </div>

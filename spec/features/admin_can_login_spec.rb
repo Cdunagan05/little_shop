@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Admin can log in' do
   scenario 'they log in and see admin dashboard' do
-    User.create(username: 'admin', password: 'password', role: 1)
+    create :user, role: 1, username: 'admin', password: 'password'
     visit '/login'
 
     fill_in 'Username', with: 'admin'

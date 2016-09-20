@@ -20,6 +20,8 @@ FactoryGirl.define do
     sequence(:username) { |n| "user#{n}" }
     password 'password'
     role 0
+    name 'Billybob Thorton'
+    address '123 Fake St'
   end
 
   factory :category do

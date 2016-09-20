@@ -1,5 +1,17 @@
-<ol>
+<table class='table-bordered col-md-12'>
+  <thead>
+    <th>Item</th><th>Quantity</th><th>Price</th><th>Subtotal</th>
+  </thead>
   <% order.order_items.each do |order_item| %>
-    <li><%= link_to order_item.item.title, item_path(order_item.item) %>: <%= number_to_currency order_item.subtotal %></li>
+    <tr class='order'>
+      <td><%= link_to order_item.item.title, item_path(order_item.item) %></td>
+      <td> <%= order_item.quantity %> </td>
+      <td> <%= number_to_currency order_item.price %> </td>
+      <td> <%= number_to_currency order_item.subtotal %></td>
+    </tr>
   <% end %>
-</ol>
+  <tfoot>
+    <td colspan="3"></td>
+    <td><strong>Total: <%= number_to_currency order.total %></strong></td>
+  </tfoot>
+</table>
