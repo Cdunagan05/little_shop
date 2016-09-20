@@ -18,7 +18,7 @@ RSpec.feature 'User can view a past order' do
     expect(current_path).to eq("/orders/#{order.id}")
     within('tr:nth-child(2)') do
       within('td:first') do
-        expect(page).to have_content 'Jersey 12'
+        expect(page).to have_content 'Jersey 13'
       end
       within('td:nth-child(4)') do
         expect(page).to have_content '$200.00'
