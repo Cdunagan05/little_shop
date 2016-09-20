@@ -10,7 +10,7 @@ user = User.create(username: 'a', password: 'b', name: 'A', address: '123 Fake S
 item1 = Item.create(title: 'Texas Jersey', description: 'This is a sweet Longhorn Jersey yo', price: 100.00, image: 'http://images.footballfanatics.com/FFImage/thumb.aspx?i=/productImages/_2103000/ff_2103501_xl.jpg&w=245')
 item2 = Item.create(title: 'Virginia Tech Jersey', description: 'This is a sweet Hokies Jersey yo', price: 125.00, image: 'http://images.footballfanatics.com/FFImage/thumb.aspx?i=/productImages/_1163000/ff_1163469_xl.jpg&w=245')
 item3 = Item.create(title: 'Texas Water Bottle', description: 'This is Bevos favorite thing to drink out of', price: 10.00, image: 'http://scene7.targetimg1.com/is/image/Target/13563000?wid=450&hei=450&fmt=pjpeg')
-item4 = Item.create(title: 'Virginia Tech Water Bottle', description: 'This is Beamers favorite thing to drink out of', price: 10.00, image: 'http://s7d9.scene7.com/is/image/BedBathandBeyond/23541740299693p')
+item4 = Item.create(title: 'Virginia Tech Water Bottle', description: 'This is Beamers favorite thing to drink out of', price: 10.00, image: 'http://s7d9.scene7.com/is/image/BedBathandBeyond/23541740299693p', status: 1)
 
 jerseys = Category.create(name: 'Jerseys')
 water_bottle = Category.create(name: 'Water Bottle')

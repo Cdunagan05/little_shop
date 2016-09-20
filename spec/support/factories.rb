@@ -4,6 +4,7 @@ FactoryGirl.define do
     sequence(:description) { |n| "This is a cool jersey, #{n}" }
     price 100.00
     image 'image_url'
+    status 0
 
     factory :item_with_orders do
       transient do
