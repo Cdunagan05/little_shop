@@ -25,7 +25,8 @@ RSpec.feature 'Visitors cannot see private data' do
 
   scenario 'unauthenticated users cannot view admin screens' do
     visit '/admin/dashboard'
-    # I cannot view the administrator screens or use administrator functionality.
+    # I cannot view the administrator screens or use administrator
+    # functionality.
     expect(page).to have_content '404'
     # I cannot make myself an administrator.
     click_link 'Login'

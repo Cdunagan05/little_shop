@@ -1,6 +1,10 @@
 <h1>My Orders</h1>
-<ul>
+<table>
+  <thead><th>Order ID</th></thead>
   <% @orders.each do |order|%>
-    <li>Order number <%= link_to order.id, order_path(order) %>
+    <tr>
+      <td>Order number <%= link_to order.id, order_path(order) %></td>
+    </tr>
   <% end %>
-</ul>
+  <tfoot><td>Total: <%= @orders.count %></td></tfoot>
+</table>
