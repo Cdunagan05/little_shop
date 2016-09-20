@@ -18,8 +18,9 @@ RSpec.describe Order, type: :model do
 
   it 'totals up subtotals from order items' do
     item = create :item
-    order = create :order_for_user
+    order = build :order_for_user
     order.subtotal_order_items(item => 2)
+    order.save
 
     expect(order.total).to eq(200)
   end

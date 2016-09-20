@@ -23,13 +23,6 @@ RSpec.feature 'Admin cannot modify users' do
     user2 = create :user, username: 'bob'
 
     visit edit_user_path(user2)
-
-    fill_in 'Username', with: 'cat'
-    fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
-
-    click_on 'Update User'
-
-    expect(user2.username).to eq('bob')
+    expect(page).to have_content('Users can only edit their own profile')
   end
 end

@@ -4,6 +4,7 @@ FactoryGirl.define do
     sequence(:description) { |n| "This is a cool jersey, #{n}" }
     price 100.00
     image 'image_url'
+    status 0
 
     factory :item_with_orders do
       transient do
@@ -20,6 +21,8 @@ FactoryGirl.define do
     sequence(:username) { |n| "user#{n}" }
     password 'password'
     role 0
+    name 'Billybob Thorton'
+    address '123 Fake St'
   end
 
   factory :category do

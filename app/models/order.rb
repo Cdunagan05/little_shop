@@ -9,14 +9,15 @@ class Order < ApplicationRecord
   def subtotal_order_items(line_items)
     line_items.each do |item, quantity|
       items << item
-      order_items.find_by(item_id: item.id).update_attribute(:subtotal,
-        item.price * quantity
-      )
+      order_items.last.price = item.price
+      order_items.last.quantity = quantity
     end
   end
 
   def total
-    order_items.sum(:subtotal)
+    order_items.reduce(0) do |total, order_item|
+      total += order_item.price * order_item.quantity
+    end
   end
 
   def self.count_by_status(status)
