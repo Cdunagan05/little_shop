@@ -44,16 +44,6 @@ class UsersController < ApplicationController
       flash.now[:warning] = 'Users can only view their own dashboard'
       render 'shared/error'
     end
-    #
-    # if @user == current_user
-    #   render :show
-    # if current_user
-    #   flash[:warning] = 'Users can only view their own dashboard'
-    #   redirect_to 'shared/error'
-    # else
-    #   flash[:warning] = 'Must log in to view dashboard'
-    #   redirect_to login_path
-    # end
   end
 
   private
