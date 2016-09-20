@@ -11,11 +11,11 @@ RSpec.feature 'Authenticated user security' do
     expect(page).to have_content("Users can only view their own dashboard")
 
     item = create :item
-    order = create :order, user: other_user
+    order = build :order, user: other_user
     order.subtotal_order_items(item => 2)
-
+    order.save
     visit order_path(order)
-    #error message
+    expect(page).to have_content('Users can only view their own orders')
     # I cannot view the administrator screens or use admin functionality
     visit admin_dashboard_path
     #error message

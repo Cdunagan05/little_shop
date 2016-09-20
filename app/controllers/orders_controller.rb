@@ -14,16 +14,20 @@ class OrdersController < ApplicationController
     if current_user
       @orders = current_user.orders
     else
-      flash[:warning] = 'Must be logged in to view orders'
+      flash.now[:warning] = 'Must be logged in to view orders'
       render 'shared/error'
     end
   end
 
   def show
     @order = Order.find(params[:id])
-    if current_admin? || current_user == @order.user
+    if !current_user
+      flash.now[:warning] = 'Must be logged in to view orders'
+      render 'shared/error'
+    elsif current_admin? || current_user == @order.user
+
     else
-      flash[:warning] = 'Must be logged in to view orders'
+      flash.now[:warning] = 'Users can only view their own orders'
       render 'shared/error'
     end
   end

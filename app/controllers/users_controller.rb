@@ -19,9 +19,9 @@ class UsersController < ApplicationController
       flash[:warning] = 'Must be logged in to edit your profile'
       redirect_to login_path
     elsif @user == current_user
-      
+
     else
-      flash[:warning] = 'Users can only edit their own profile'
+      flash.now[:warning] = 'Users can only edit their own profile'
       render 'shared/error'
     end
   end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     elsif @user == current_user || current_admin?
       render :show
     else
-      flash[:warning] = 'Users can only view their own dashboard'
+      flash.now[:warning] = 'Users can only view their own dashboard'
       render 'shared/error'
     end
     #
