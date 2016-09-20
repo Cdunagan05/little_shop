@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create(username: 'a', password: 'b')
+user = User.create(username: 'a', password: 'b', name: 'A', address: '123 Fake St')
 
 item1 = Item.create(title: 'Texas Jersey', description: 'This is a sweet Longhorn Jersey yo', price: 100.00, image: 'http://images.footballfanatics.com/FFImage/thumb.aspx?i=/productImages/_2103000/ff_2103501_xl.jpg&w=245')
 item2 = Item.create(title: 'Virginia Tech Jersey', description: 'This is a sweet Hokies Jersey yo', price: 125.00, image: 'http://images.footballfanatics.com/FFImage/thumb.aspx?i=/productImages/_1163000/ff_1163469_xl.jpg&w=245')
@@ -25,7 +25,7 @@ item4.categories<<([water_bottle, va_tech])
 order = user.orders.new
 order.subtotal_order_items({item1 => 5, item2 => 3})
 order.save
-User.create(username:'admin', password:'password', role: 1)
+User.create(username:'admin', password:'password', role: 1, name: 'Govenator', address: '1 Power Tr')
 
 order2 = user.orders.new
 order2.subtotal_order_items({item3 => 5, item4 => 3})

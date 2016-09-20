@@ -1,6 +1,9 @@
-<h1>Welcome <%= current_user.username %></h1>
+<h1>Welcome <%= @user.username %></h1>
 
 <h3><%= link_to 'View Cart', cart_path %></h3>
 <h3><%= link_to 'View past orders', orders_path %></h3>
-<h3><%= link_to 'Edit Profile', edit_user_path(current_user) %><h3>
-<p>Member since <%= current_user.created_at %></p>
+<h3><%= link_to 'Edit Profile', edit_user_path(@user) %><h3>
+<% if current_admin? %>
+  <h3><%= link_to 'Admin Dashboard', admin_dashboard_path %></h3>
+<% end %>
+<p>Member since <%= @user.created_at %></p>
