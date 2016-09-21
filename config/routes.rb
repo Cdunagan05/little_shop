@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:show, :update]
     resources :orders, only: [:update]
+    resources :items, only: [:create, :new]
   end
 
   get '/cart', to: 'cart#index', as: 'cart'

@@ -10,4 +10,6 @@ class Item < ApplicationRecord
   validates :image, presence: true
 
   enum status: %w(active retired)
+
+  accepts_nested_attributes_for :categories
 end
