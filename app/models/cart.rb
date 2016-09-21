@@ -39,4 +39,8 @@ class Cart
       total += content.first.price * content.last
     end
   end
+
+  def empty
+    @contents = {}
+  end
 end

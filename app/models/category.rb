@@ -9,6 +9,6 @@ class Category < ApplicationRecord
   end
 
   def self.find_by_name(param_name)
-    find_by(name: param_name.gsub('-', ' '))
+    find_by(name: param_name.gsub('-', ' ').capitalize)
   end
 end
