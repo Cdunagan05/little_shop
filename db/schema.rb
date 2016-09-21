@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920213127) do
+ActiveRecord::Schema.define(version: 20160921213902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20160920213127) do
     t.string   "title"
     t.string   "description"
     t.float    "price"
-    t.string   "image"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "image",       default: "http://www.thesportscol.com/wp-content/uploads/2015/04/college_sports_minute.jpg"
+    t.datetime "created_at",                                                                                               null: false
+    t.datetime "updated_at",                                                                                               null: false
     t.integer  "status",      default: 0
   end
 
