@@ -11,19 +11,9 @@
 </div>
 
 <div class='row'>
-  <div class='col-md-8 text-center'><h3>Orders</h3></div><div class="col-md-4 dropdown">
- <button class="btn btn-secondary dropdown-toggle"
-         type="button" id="filter_status" data-toggle="dropdown"
-         aria-haspopup="true" aria-expanded="false">
-   Filter Status
- </button>
- <div class="dropdown-menu" aria-labelledby="filter_status">
-   <a class="dropdown-item" href="?status=all">All</a></br>
-   <a class="dropdown-item" href="?status=ordered">Ordered</a></br>
-   <a class="dropdown-item" href="?status=paid">Paid</a></br>
-   <a class="dropdown-item" href="?status=completed">Completed</a></br>
-   <a class="dropdown-item" href="?status=cancelled">Cancelled</a>
- </div>
+  <div class='col-md-8 text-center'><h3>Orders</h3></div>
+  <div class="col-md-4 dropdown">
+  <%= render partial: 'filter_button' %>
 </div>
 
 <div class='row'>
