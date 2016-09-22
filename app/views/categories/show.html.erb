@@ -1,7 +1,10 @@
 <h1> <%= @category.name %> </h1>
 
-<div>
+<div class='container'>
   <% @category.items.each do |item| %>
     <%= render partial: 'shared/item_list', locals: { item: item } %>
+    <div class='container'>
+    <%= cart_button(item) %><br/>
+    </div>
   <% end %>
 </div>

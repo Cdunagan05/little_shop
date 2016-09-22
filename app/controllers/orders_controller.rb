@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
     order = current_user.orders.new
     order.subtotal_order_items(@cart.item_quantities)
     if order.save
+      session.delete(:cart)
       flash[:success] = 'Order was successfully placed'
       redirect_to orders_path
     else

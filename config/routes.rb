@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:show, :update]
     resources :orders, only: [:update]
+    resources :items, only: [:create, :new]
   end
 
   get '/cart', to: 'cart#index', as: 'cart'
   post '/cart', to: 'orders#create'
-  get '/:category_name', to: 'categories#show'
+  get '/:category_name', to: 'categories#show', as: 'category'
 end

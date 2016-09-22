@@ -1,0 +1,19 @@
+<h1>Create a new Item</h1>
+
+<%= form_for [:admin, @item] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+  <%= fields_for :categories, @item.categories do |c| %>
+    <label for='categories_name'>Category</label>
+    <%= c.text_field :name %>
+  <% end %>
+
+  <%= f.submit 'Create Item'%>
+  
+  <% end %>

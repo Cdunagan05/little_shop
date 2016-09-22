@@ -1,11 +1,18 @@
 <h1><%= @item.title %></h1>
-<div>
-  <img src='<%= @item.image %>'/>
+<div class='row'>
+  <div class='col-md-6'>
+    <img src='<%= @item.image %>'/>
+  </div>
+  <div class='col-md-6'>
+    <p><%= @item.description %></p>
+    <% if @item.active? %>
+    <p>Price: <%= number_to_currency @item.price %></p>
+    <%end %>
+    <% @item.categories.each do |category| %>
+      <%= link_to category.name, category_path(category) %>
+    <% end %>
+  </div>
 </div>
-<div>
-  <%= @item.description %>
-  <% if @item.active? %>
-    <%= number_to_currency @item.price %>
-  <%end %>
-  <%= cart_button(@item) %>
+<div class='container'>
+<%= cart_button(@item) %><br/>
 </div>
