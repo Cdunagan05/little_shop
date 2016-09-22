@@ -21,5 +21,5 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'cart#index', as: 'cart'
   post '/cart', to: 'orders#create'
-  get '/:category_name', to: 'categories#show'
+  get '/:category_name', to: 'categories#show', as: 'category'
 end
