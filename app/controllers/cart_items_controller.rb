@@ -4,7 +4,7 @@ class CartItemsController < ApplicationController
     @cart.add_item(item.id)
 
     session[:cart] = @cart.contents
-
+    flash[:success] = "Added #{item.title} to cart!"
     redirect_back(fallback_location: root_path)
   end
 

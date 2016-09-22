@@ -8,15 +8,15 @@
       <div class='row'>
         <div class='col-md-4'>
           Number in cart: <%= quantity %>
+          <%= form_for :cart_items, url: cart_item_path(item), method: 'put' do |f|  %>
+          <div class="field">
+            <%= f.label "Update Quantity:"  %>
+            <%= f.number_field :quantity, value: "#{quantity}" %>
+            <%= f.submit "Update Item"%>
+          </div>
+          <% end %>
         </div>
         <div class='col-md-4'>
-          <%= form_for :cart_items, url: cart_item_path(item), method: 'put' do |f|  %>
-            <div class="field">
-               <%= f.label "Update Quantity:"  %>
-               <%= f.number_field :quantity %>
-               <%= f.submit "Update Item"%>
-            </div>
-          <% end %>
           <%= link_to 'Remove', cart_item_path(item), method: 'delete' %>
         </div>
         <div class='col-md-4'>

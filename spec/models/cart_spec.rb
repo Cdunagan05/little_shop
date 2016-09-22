@@ -31,4 +31,13 @@ RSpec.describe Cart, type: :model do
 
     expect(cart.total).to eq (200.0)
   end
+
+  it 'empties cart after checkout' do
+    item = create :item
+    cart = Cart.new(item.id.to_s => 2)
+
+    expect{ cart.empty }.to change {
+      cart.item_quantities
+    }.from(item => 2).to({})
+  end
 end
